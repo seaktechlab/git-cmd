@@ -23,130 +23,265 @@
       box-sizing:border-box;
     }
 
+    /* Dark Mode Default */
+
     :root{
-      --bg:#020617;
-      --card:#0f172a;
-      --card-hover:#111827;
-      --border:rgba(255,255,255,0.08);
-      --text:#f8fafc;
-      --subtext:#94a3b8;
-      --primary:#3b82f6;
-      --primary-light:#60a5fa;
-      --code-bg:#000814;
+
+      /* Apple/System Black */
+
+      --bg:#000000;
+      --bg-secondary:#0a0a0a;
+
+      --card:#111111;
+      --card-hover:#1a1a1a;
+
+      --border:rgba(255,255,255,0.06);
+
+      --text:#ffffff;
+      --subtext:#a1a1aa;
+
+      --primary:#ffffff;
+      --primary-light:#d4d4d8;
+
+      --code-bg:#050505;
+
+    }
+
+    /* Light Mode */
+
+    @media (prefers-color-scheme: light){
+
+      :root{
+
+        --bg:#f8fafc;
+        --bg-secondary:#e2e8f0;
+
+        --card:#ffffff;
+        --card-hover:#f1f5f9;
+
+        --border:rgba(15,23,42,0.08);
+
+        --text:#0f172a;
+        --subtext:#475569;
+
+        --primary:#111827;
+        --primary-light:#1e293b;
+
+        --code-bg:#e2e8f0;
+
+      }
+
     }
 
     body{
+
       background:
-      radial-gradient(circle at top left,#0f172a 0%,#020617 50%);
+      radial-gradient(circle at top,
+      #1a1a1a 0%,
+      #050505 35%,
+      #000000 100%);
+
       color:var(--text);
+
       font-family:'Inter',sans-serif;
+
       line-height:1.7;
+
+      transition:0.3s ease;
+
+      min-height:100vh;
+
     }
 
     .container{
+
       width:100%;
       max-width:1400px;
+
       margin:auto;
+
       padding:24px;
+
     }
 
     /* Hero */
 
     .hero{
+
       text-align:center;
+
       padding:40px 20px 30px;
+
     }
 
     .hero-badge{
+
       display:inline-block;
+
       padding:8px 18px;
+
       border-radius:999px;
-      background:rgba(59,130,246,0.12);
-      color:var(--primary-light);
-      border:1px solid rgba(59,130,246,0.25);
-      font-size:13px;
+
+      background:rgba(255,255,255,0.05);
+
+      color:#f4f4f5;
+
+      border:1px solid rgba(255,255,255,0.06);
+
+      font-size:12px;
+
       font-weight:600;
+
       margin-bottom:18px;
+
+      letter-spacing:0.3px;
+
     }
 
     .hero h1{
+
       font-size:42px;
+
       font-weight:800;
+
       margin-bottom:10px;
+
       letter-spacing:-1px;
+
     }
 
     .hero p{
+
       color:var(--subtext);
+
       font-size:16px;
+
     }
 
     /* Grid */
 
     .grid{
+
       display:grid;
+
       grid-template-columns:repeat(2,1fr);
+
       gap:24px;
+
       margin-top:20px;
+
     }
 
     /* Card */
 
     .card{
-      background:rgba(15,23,42,0.95);
+
+      background:rgba(17,17,17,0.95);
+
       border:1px solid var(--border);
+
       border-radius:24px;
+
       padding:28px;
+
       transition:0.3s ease;
+
+      backdrop-filter:blur(20px);
+
+      box-shadow:
+      0 0 0 1px rgba(255,255,255,0.02),
+      0 10px 30px rgba(0,0,0,0.4);
+
     }
 
     .card:hover{
-      transform:translateY(-5px);
+
+      transform:translateY(-4px);
+
       background:var(--card-hover);
-      border-color:rgba(59,130,246,0.35);
+
+      border-color:rgba(255,255,255,0.08);
+
     }
+
+    /* Badge */
 
     .badge{
+
       display:inline-block;
-      background:rgba(59,130,246,0.12);
-      color:var(--primary-light);
+
+      background:rgba(255,255,255,0.05);
+
+      color:#f4f4f5;
+
       padding:8px 14px;
+
       border-radius:999px;
-      font-size:13px;
+
+      font-size:12px;
+
       font-weight:600;
-      border:1px solid rgba(59,130,246,0.2);
+
+      border:1px solid rgba(255,255,255,0.06);
+
       margin-bottom:18px;
+
+      letter-spacing:0.3px;
+
     }
 
+    /* Text */
+
     .card h2{
+
       font-size:24px;
+
       margin-bottom:10px;
+
       font-weight:700;
+
     }
 
     .card p{
+
       color:var(--subtext);
+
       margin-bottom:16px;
+
       font-size:15px;
+
     }
 
-    /* Code */
+    /* Code Block */
 
     pre{
+
       background:var(--code-bg);
-      border:1px solid rgba(255,255,255,0.06);
+
+      border:1px solid var(--border);
+
       border-radius:18px;
+
       padding:18px;
+
       overflow-x:auto;
+
       margin-top:14px;
+
     }
 
     code{
+
       font-family:'JetBrains Mono',monospace;
-      color:#7dd3fc;
+
+      color:#d4d4d8;
+
       font-size:13px;
+
       line-height:1.8;
+
       white-space:pre;
+
     }
 
     /* List */
@@ -156,20 +291,31 @@
     }
 
     li{
+
       margin-bottom:10px;
-      color:#cbd5e1;
+
+      color:var(--subtext);
+
       font-size:15px;
+
     }
 
     /* Footer */
 
     .footer{
+
       margin-top:60px;
+
       padding:30px 0;
+
       text-align:center;
+
       color:var(--subtext);
+
       border-top:1px solid var(--border);
+
       font-size:14px;
+
     }
 
     /* Mobile */
@@ -260,10 +406,10 @@ git config --global --list</code></pre>
 <pre><code># Go to desktop
 cd Desktop
 
-# Clone project
+# Clone repository
 git clone http://YOUR_GITLAB_SERVER/acleda-mobile-ios.git
 
-# Open folder
+# Open project folder
 cd acleda-mobile-ios</code></pre>
 
       </div>
@@ -286,7 +432,7 @@ cd acleda-mobile-ios</code></pre>
 pod install</code></pre>
 
         <p>
-          If CocoaPods missing:
+          If CocoaPods is missing:
         </p>
 
 <pre><code># Install CocoaPods
@@ -310,26 +456,6 @@ sudo gem install cocoapods</code></pre>
 
 <pre><code># Open workspace
 open YourProject.xcworkspace</code></pre>
-
-      </div>
-
-      <!-- SPM -->
-
-      <div class="card">
-
-        <div class="badge">
-          SPM
-        </div>
-
-        <h2>Resolve Packages</h2>
-
-        <p>
-          Download Swift Package dependencies.
-        </p>
-
-<pre><code>File
-→ Packages
-→ Resolve Package Versions</code></pre>
 
       </div>
 
@@ -363,7 +489,7 @@ git checkout -b feature/home-ui</code></pre>
       <div class="card">
 
         <div class="badge">
-          Status
+          Git Status
         </div>
 
         <h2>Check Changes</h2>
@@ -460,109 +586,6 @@ git push</code></pre>
 4. Select source branch
 5. Select target branch
 6. Create Merge Request</code></pre>
-
-      </div>
-
-      <!-- Workflow -->
-
-      <div class="card">
-
-        <div class="badge">
-          Workflow
-        </div>
-
-        <h2>Daily Development Flow</h2>
-
-        <p>
-          Recommended daily Git workflow.
-        </p>
-
-<pre><code># Update develop
-git checkout develop
-git pull origin develop
-
-# Return to branch
-git checkout your-branch
-
-# Sync latest develop
-git merge develop</code></pre>
-
-      </div>
-
-      <!-- Rules -->
-
-      <div class="card">
-
-        <div class="badge">
-          Best Practice
-        </div>
-
-        <h2>Development Rules</h2>
-
-        <ul>
-          <li>Never commit directly to main branch</li>
-          <li>Always use feature branches</li>
-          <li>Pull latest develop before coding</li>
-          <li>Review files before pushing</li>
-          <li>Use meaningful commit messages</li>
-          <li>Create MR for every update</li>
-        </ul>
-
-      </div>
-
-      <!-- Commands -->
-
-      <div class="card">
-
-        <div class="badge">
-          Commands
-        </div>
-
-        <h2>Useful Git Commands</h2>
-
-        <p>
-          Common Git commands for development.
-        </p>
-
-<pre><code># Check status
-git status
-
-# Show branches
-git branch
-
-# Commit history
-git log --oneline
-
-# Pull latest
-git pull
-
-# Push code
-git push</code></pre>
-
-      </div>
-
-      <!-- Troubleshoot -->
-
-      <div class="card">
-
-        <div class="badge">
-          Troubleshooting
-        </div>
-
-        <h2>Fix Common Issues</h2>
-
-        <p>
-          Resolve CocoaPods and Xcode issues.
-        </p>
-
-<pre><code># Update pod repo
-pod repo update
-
-# Install pods again
-pod install
-
-# Remove derived data
-rm -rf ~/Library/Developer/Xcode/DerivedData</code></pre>
 
       </div>
 
