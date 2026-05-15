@@ -210,7 +210,7 @@ git config --global --list</code></pre>
 
         <pre><code>cd Desktop
 
-git clone http://{localserverip}/kimseak/acleda-mobile-ios.git
+git clone http://localserverip/kimseak/acleda-mobile-ios.git
 
 cd acleda-mobile-ios</code></pre>
       </div>
