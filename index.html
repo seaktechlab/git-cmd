@@ -1,326 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ACLEDA Mobile iOS - Setup Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>ACLEDA Mobile iOS Guide</title>
+
+  <!-- Fonts -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --card-light: #1e293b;
-      --text: #f8fafc;
-      --subtext: #94a3b8;
-      --primary: #3b82f6;
-      --border: rgba(255,255,255,0.08);
-      --success: #22c55e;
+    :root{
+      --bg:#020617;
+      --card:#0f172a;
+      --card-hover:#111827;
+      --border:rgba(255,255,255,0.08);
+      --text:#f8fafc;
+      --subtext:#94a3b8;
+      --primary:#3b82f6;
+      --primary-light:#60a5fa;
+      --code-bg:#000814;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
-      color: var(--text);
-      line-height: 1.6;
+    body{
+      background:
+      radial-gradient(circle at top left,#0f172a 0%,#020617 50%);
+      color:var(--text);
+      font-family:'Inter',sans-serif;
+      line-height:1.7;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 24px;
+    .container{
+      width:100%;
+      max-width:1400px;
+      margin:auto;
+      padding:24px;
     }
 
-    .hero {
-      text-align: center;
-      padding: 80px 20px 50px;
+    /* Hero */
+
+    .hero{
+      text-align:center;
+      padding:40px 20px 30px;
     }
 
-    .hero h1 {
-      font-size: 52px;
-      margin-bottom: 12px;
-      font-weight: 800;
+    .hero-badge{
+      display:inline-block;
+      padding:8px 18px;
+      border-radius:999px;
+      background:rgba(59,130,246,0.12);
+      color:var(--primary-light);
+      border:1px solid rgba(59,130,246,0.25);
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:18px;
     }
 
-    .hero p {
-      color: var(--subtext);
-      font-size: 18px;
-      max-width: 700px;
-      margin: auto;
+    .hero h1{
+      font-size:42px;
+      font-weight:800;
+      margin-bottom:10px;
+      letter-spacing:-1px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
+    .hero p{
+      color:var(--subtext);
+      font-size:16px;
     }
 
-    .card {
-      background: rgba(17, 24, 39, 0.9);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      backdrop-filter: blur(10px);
-      transition: 0.3s ease;
+    /* Grid */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+      margin-top:20px;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(59,130,246,0.4);
+    /* Card */
+
+    .card{
+      background:rgba(15,23,42,0.95);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:28px;
+      transition:0.3s ease;
     }
 
-    .card h2 {
-      font-size: 22px;
-      margin-bottom: 16px;
+    .card:hover{
+      transform:translateY(-5px);
+      background:var(--card-hover);
+      border-color:rgba(59,130,246,0.35);
     }
 
-    .card p {
-      color: var(--subtext);
-      margin-bottom: 16px;
+    .badge{
+      display:inline-block;
+      background:rgba(59,130,246,0.12);
+      color:var(--primary-light);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+      border:1px solid rgba(59,130,246,0.2);
+      margin-bottom:18px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(59,130,246,0.15);
-      color: #60a5fa;
-      font-size: 13px;
-      margin-bottom: 16px;
+    .card h2{
+      font-size:24px;
+      margin-bottom:10px;
+      font-weight:700;
     }
 
-    pre {
-      background: #020617;
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 14px;
-      padding: 16px;
-      overflow-x: auto;
-      margin-top: 12px;
+    .card p{
+      color:var(--subtext);
+      margin-bottom:16px;
+      font-size:15px;
     }
 
-    code {
-      color: #38bdf8;
-      font-size: 14px;
-      font-family: Menlo, monospace;
+    /* Code */
+
+    pre{
+      background:var(--code-bg);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:18px;
+      overflow-x:auto;
+      margin-top:14px;
     }
 
-    ul {
-      padding-left: 20px;
+    code{
+      font-family:'JetBrains Mono',monospace;
+      color:#7dd3fc;
+      font-size:13px;
+      line-height:1.8;
+      white-space:pre;
     }
 
-    li {
-      margin-bottom: 10px;
-      color: var(--subtext);
+    /* List */
+
+    ul{
+      padding-left:22px;
     }
 
-    .step {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 18px;
+    li{
+      margin-bottom:10px;
+      color:#cbd5e1;
+      font-size:15px;
     }
 
-    .step-number {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      flex-shrink: 0;
+    /* Footer */
+
+    .footer{
+      margin-top:60px;
+      padding:30px 0;
+      text-align:center;
+      color:var(--subtext);
+      border-top:1px solid var(--border);
+      font-size:14px;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 80px;
-      padding: 30px 0;
-      color: var(--subtext);
-      border-top: 1px solid var(--border);
-    }
+    /* Mobile */
 
-    .highlight {
-      color: var(--success);
-      font-weight: 600;
-    }
+    @media(max-width:900px){
 
-    @media (max-width: 768px) {
-      .hero {
-        padding-top: 50px;
+      .grid{
+        grid-template-columns:1fr;
       }
 
-      .hero h1 {
-        font-size: 36px;
+      .hero h1{
+        font-size:34px;
       }
 
-      .hero p {
-        font-size: 16px;
+      .card{
+        padding:22px;
       }
 
-      .container {
-        padding: 16px;
-      }
-
-      .card {
-        padding: 20px;
-      }
     }
+
   </style>
+
 </head>
 
 <body>
 
   <div class="container">
 
+    <!-- Hero -->
+
     <section class="hero">
+
+      <div class="hero-badge">
+        iOS Developer Guide
+      </div>
+
       <h1>ACLEDA Mobile iOS</h1>
+
       <p>
-        Professional iOS project setup guide with Git workflow,
-        CocoaPods installation, branch strategy, and Merge Request flow.
+        Setup guide & Git workflow.
       </p>
+
     </section>
+
+    <!-- Grid -->
 
     <div class="grid">
 
+      <!-- Git Setup -->
+
       <div class="card">
-        <span class="badge">Git Setup</span>
+
+        <div class="badge">
+          Git Setup
+        </div>
+
         <h2>Global Git Configuration</h2>
 
-        <p>Configure Git before cloning project.</p>
+        <p>
+          Configure Git account before cloning project.
+        </p>
 
-        <pre><code>git config --global user.name "Your Name"
+<pre><code># Set username
+git config --global user.name "Your Name"
 
+# Set email
 git config --global user.email "your_email@example.com"
 
+# Verify setup
 git config --global --list</code></pre>
+
       </div>
 
-      <div class="card">
-        <span class="badge">Clone Project</span>
-        <h2>Clone Repository</h2>
-
-        <pre><code>cd Desktop
-
-git clone http://localserverip/kimseak/acleda-mobile-ios.git
-
-cd acleda-mobile-ios</code></pre>
-      </div>
+      <!-- Clone -->
 
       <div class="card">
-        <span class="badge">CocoaPods</span>
-        <h2>Install Dependencies</h2>
 
-        <pre><code>pod install</code></pre>
+        <div class="badge">
+          Clone Repository
+        </div>
 
-        <p>If CocoaPods is missing:</p>
-
-        <pre><code>sudo gem install cocoapods</code></pre>
-      </div>
-
-      <div class="card">
-        <span class="badge">Xcode</span>
-        <h2>Open Workspace</h2>
-
-        <pre><code>open YourProject.xcworkspace</code></pre>
+        <h2>Clone Project</h2>
 
         <p>
-          <span class="highlight">Important:</span>
-          Always open <code>.xcworkspace</code>
+          Download source code from GitLab server.
         </p>
+
+<pre><code># Go to desktop
+cd Desktop
+
+# Clone project
+git clone http://YOUR_GITLAB_SERVER/acleda-mobile-ios.git
+
+# Open folder
+cd acleda-mobile-ios</code></pre>
+
       </div>
 
-      <div class="card">
-        <span class="badge">Git Flow</span>
-        <h2>Create Branch</h2>
+      <!-- Pods -->
 
-        <pre><code>git checkout develop
+      <div class="card">
+
+        <div class="badge">
+          CocoaPods
+        </div>
+
+        <h2>Install Pods</h2>
+
+        <p>
+          Install required iOS libraries.
+        </p>
+
+<pre><code># Install pods
+pod install</code></pre>
+
+        <p>
+          If CocoaPods missing:
+        </p>
+
+<pre><code># Install CocoaPods
+sudo gem install cocoapods</code></pre>
+
+      </div>
+
+      <!-- Workspace -->
+
+      <div class="card">
+
+        <div class="badge">
+          Xcode
+        </div>
+
+        <h2>Open Workspace</h2>
+
+        <p>
+          Open workspace for CocoaPods support.
+        </p>
+
+<pre><code># Open workspace
+open YourProject.xcworkspace</code></pre>
+
+      </div>
+
+      <!-- SPM -->
+
+      <div class="card">
+
+        <div class="badge">
+          SPM
+        </div>
+
+        <h2>Resolve Packages</h2>
+
+        <p>
+          Download Swift Package dependencies.
+        </p>
+
+<pre><code>File
+→ Packages
+→ Resolve Package Versions</code></pre>
+
+      </div>
+
+      <!-- Branch -->
+
+      <div class="card">
+
+        <div class="badge">
+          Branch
+        </div>
+
+        <h2>Create Feature Branch</h2>
+
+        <p>
+          Create new working branch before coding.
+        </p>
+
+<pre><code># Switch develop
+git checkout develop
+
+# Pull latest code
 git pull origin develop
 
+# Create branch
 git checkout -b feature/home-ui</code></pre>
+
       </div>
 
+      <!-- Status -->
+
       <div class="card">
-        <span class="badge">Commit</span>
+
+        <div class="badge">
+          Status
+        </div>
+
+        <h2>Check Changes</h2>
+
+        <p>
+          Show changed and untracked files.
+        </p>
+
+<pre><code># Check status
+git status</code></pre>
+
+      </div>
+
+      <!-- Add -->
+
+      <div class="card">
+
+        <div class="badge">
+          Git Add
+        </div>
+
+        <h2>Add Files</h2>
+
+        <p>
+          Add files before commit.
+        </p>
+
+<pre><code># Add all files
+git add .
+
+# Add single file
+git add Sources/HomeViewController.swift</code></pre>
+
+      </div>
+
+      <!-- Commit -->
+
+      <div class="card">
+
+        <div class="badge">
+          Commit
+        </div>
+
         <h2>Commit Changes</h2>
 
-        <pre><code>git add .
+        <p>
+          Save changes locally.
+        </p>
 
+<pre><code># Commit code
 git commit -m "feat: improve login validation"</code></pre>
+
       </div>
 
+      <!-- Push -->
+
       <div class="card">
-        <span class="badge">Push</span>
+
+        <div class="badge">
+          Push
+        </div>
+
         <h2>Push Code</h2>
 
-        <pre><code>git push -u origin feature/home-ui</code></pre>
+        <p>
+          Upload code to GitLab server.
+        </p>
+
+<pre><code># First push
+git push -u origin feature/home-ui
+
+# Next push
+git push</code></pre>
+
       </div>
 
+      <!-- MR -->
+
       <div class="card">
-        <span class="badge">Merge Request</span>
+
+        <div class="badge">
+          Merge Request
+        </div>
+
         <h2>Create MR</h2>
 
-        <div class="step">
-          <div class="step-number">1</div>
-          <div>Open GitLab</div>
-        </div>
+        <p>
+          Submit code for review and merge.
+        </p>
 
-        <div class="step">
-          <div class="step-number">2</div>
-          <div>Go to Merge Requests</div>
-        </div>
+<pre><code>1. Open GitLab
+2. Go to Merge Requests
+3. Click New MR
+4. Select source branch
+5. Select target branch
+6. Create Merge Request</code></pre>
 
-        <div class="step">
-          <div class="step-number">3</div>
-          <div>Create New Merge Request</div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">4</div>
-          <div>Select source and target branch</div>
-        </div>
       </div>
 
+      <!-- Workflow -->
+
       <div class="card">
-        <span class="badge">Best Practice</span>
+
+        <div class="badge">
+          Workflow
+        </div>
+
+        <h2>Daily Development Flow</h2>
+
+        <p>
+          Recommended daily Git workflow.
+        </p>
+
+<pre><code># Update develop
+git checkout develop
+git pull origin develop
+
+# Return to branch
+git checkout your-branch
+
+# Sync latest develop
+git merge develop</code></pre>
+
+      </div>
+
+      <!-- Rules -->
+
+      <div class="card">
+
+        <div class="badge">
+          Best Practice
+        </div>
+
         <h2>Development Rules</h2>
 
         <ul>
           <li>Never commit directly to main branch</li>
           <li>Always use feature branches</li>
           <li>Pull latest develop before coding</li>
-          <li>Review changed files before push</li>
-          <li>Use clean commit messages</li>
-          <li>Create Merge Request for every update</li>
+          <li>Review files before pushing</li>
+          <li>Use meaningful commit messages</li>
+          <li>Create MR for every update</li>
         </ul>
+
       </div>
 
-      <div class="card">
-        <span class="badge">Troubleshooting</span>
-        <h2>Useful Commands</h2>
+      <!-- Commands -->
 
-        <pre><code>git status
+      <div class="card">
+
+        <div class="badge">
+          Commands
+        </div>
+
+        <h2>Useful Git Commands</h2>
+
+        <p>
+          Common Git commands for development.
+        </p>
+
+<pre><code># Check status
+git status
+
+# Show branches
 git branch
+
+# Commit history
 git log --oneline
+
+# Pull latest
 git pull
+
+# Push code
 git push</code></pre>
+
+      </div>
+
+      <!-- Troubleshoot -->
+
+      <div class="card">
+
+        <div class="badge">
+          Troubleshooting
+        </div>
+
+        <h2>Fix Common Issues</h2>
+
+        <p>
+          Resolve CocoaPods and Xcode issues.
+        </p>
+
+<pre><code># Update pod repo
+pod repo update
+
+# Install pods again
+pod install
+
+# Remove derived data
+rm -rf ~/Library/Developer/Xcode/DerivedData</code></pre>
+
       </div>
 
     </div>
 
+    <!-- Footer -->
+
     <div class="footer">
-      <p>ACLEDA Mobile iOS Team • Senior Level Project Setup Guide</p>
+      ACLEDA Mobile iOS Team • Developer Setup Guide
     </div>
 
   </div>
 
 </body>
+
 </html>
