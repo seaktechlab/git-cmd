@@ -23,14 +23,11 @@
       box-sizing:border-box;
     }
 
-    /* Dark Mode Default */
+    /* Default Theme */
 
     :root{
 
-      /* Apple/System Black */
-
       --bg:#000000;
-      --bg-secondary:#0a0a0a;
 
       --card:#111111;
       --card-hover:#1a1a1a;
@@ -40,10 +37,11 @@
       --text:#ffffff;
       --subtext:#a1a1aa;
 
-      --primary:#ffffff;
-      --primary-light:#d4d4d8;
+      --badge-bg:rgba(255,255,255,0.05);
 
       --code-bg:#050505;
+
+      --code-text:#d4d4d8;
 
     }
 
@@ -54,20 +52,20 @@
       :root{
 
         --bg:#f8fafc;
-        --bg-secondary:#e2e8f0;
 
         --card:#ffffff;
-        --card-hover:#f1f5f9;
+        --card-hover:#f8fafc;
 
         --border:rgba(15,23,42,0.08);
 
         --text:#0f172a;
         --subtext:#475569;
 
-        --primary:#111827;
-        --primary-light:#1e293b;
+        --badge-bg:rgba(15,23,42,0.05);
 
-        --code-bg:#e2e8f0;
+        --code-bg:#f1f5f9;
+
+        --code-text:#0f172a;
 
       }
 
@@ -75,11 +73,7 @@
 
     body{
 
-      background:
-      radial-gradient(circle at top,
-      #1a1a1a 0%,
-      #050505 35%,
-      #000000 100%);
+      background:var(--bg);
 
       color:var(--text);
 
@@ -87,9 +81,43 @@
 
       line-height:1.7;
 
-      transition:0.3s ease;
+      transition:
+      background 0.3s ease,
+      color 0.3s ease;
 
       min-height:100vh;
+
+    }
+
+    /* Dark Background */
+
+    @media (prefers-color-scheme: dark){
+
+      body{
+
+        background:
+        radial-gradient(circle at top,
+        #1a1a1a 0%,
+        #050505 35%,
+        #000000 100%);
+
+      }
+
+    }
+
+    /* Light Background */
+
+    @media (prefers-color-scheme: light){
+
+      body{
+
+        background:
+        radial-gradient(circle at top,
+        #ffffff 0%,
+        #f8fafc 40%,
+        #e2e8f0 100%);
+
+      }
 
     }
 
@@ -122,11 +150,9 @@
 
       border-radius:999px;
 
-      background:rgba(255,255,255,0.05);
+      background:var(--badge-bg);
 
-      color:#f4f4f5;
-
-      border:1px solid rgba(255,255,255,0.06);
+      border:1px solid var(--border);
 
       font-size:12px;
 
@@ -176,7 +202,7 @@
 
     .card{
 
-      background:rgba(17,17,17,0.95);
+      background:var(--card);
 
       border:1px solid var(--border);
 
@@ -190,7 +216,7 @@
 
       box-shadow:
       0 0 0 1px rgba(255,255,255,0.02),
-      0 10px 30px rgba(0,0,0,0.4);
+      0 10px 30px rgba(0,0,0,0.08);
 
     }
 
@@ -200,8 +226,6 @@
 
       background:var(--card-hover);
 
-      border-color:rgba(255,255,255,0.08);
-
     }
 
     /* Badge */
@@ -210,9 +234,7 @@
 
       display:inline-block;
 
-      background:rgba(255,255,255,0.05);
-
-      color:#f4f4f5;
+      background:var(--badge-bg);
 
       padding:8px 14px;
 
@@ -222,7 +244,7 @@
 
       font-weight:600;
 
-      border:1px solid rgba(255,255,255,0.06);
+      border:1px solid var(--border);
 
       margin-bottom:18px;
 
@@ -252,7 +274,7 @@
 
     }
 
-    /* Code Block */
+    /* Code */
 
     pre{
 
@@ -274,7 +296,7 @@
 
       font-family:'JetBrains Mono',monospace;
 
-      color:#d4d4d8;
+      color:var(--code-text);
 
       font-size:13px;
 
@@ -431,13 +453,6 @@ cd acleda-mobile-ios</code></pre>
 <pre><code># Install pods
 pod install</code></pre>
 
-        <p>
-          If CocoaPods is missing:
-        </p>
-
-<pre><code># Install CocoaPods
-sudo gem install cocoapods</code></pre>
-
       </div>
 
       <!-- Workspace -->
@@ -484,47 +499,6 @@ git checkout -b feature/home-ui</code></pre>
 
       </div>
 
-      <!-- Status -->
-
-      <div class="card">
-
-        <div class="badge">
-          Git Status
-        </div>
-
-        <h2>Check Changes</h2>
-
-        <p>
-          Show changed and untracked files.
-        </p>
-
-<pre><code># Check status
-git status</code></pre>
-
-      </div>
-
-      <!-- Add -->
-
-      <div class="card">
-
-        <div class="badge">
-          Git Add
-        </div>
-
-        <h2>Add Files</h2>
-
-        <p>
-          Add files before commit.
-        </p>
-
-<pre><code># Add all files
-git add .
-
-# Add single file
-git add Sources/HomeViewController.swift</code></pre>
-
-      </div>
-
       <!-- Commit -->
 
       <div class="card">
@@ -536,7 +510,7 @@ git add Sources/HomeViewController.swift</code></pre>
         <h2>Commit Changes</h2>
 
         <p>
-          Save changes locally.
+          Save code changes locally.
         </p>
 
 <pre><code># Commit code
