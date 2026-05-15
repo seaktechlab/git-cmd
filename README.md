@@ -1,15 +1,25 @@
-````markdown
 # ACLEDA Mobile iOS
 
 iOS mobile application project for ACLEDA.
 
 ---
 
+## Requirements
+
+Before setup, ensure the following are installed:
+
+- macOS
+- Xcode
+- Git
+- CocoaPods
+
+---
+
 # Git Global Setup
 
-Before cloning project, configure your Git account.
+Configure Git before cloning the project.
 
-## Set Git Username
+## Set Username
 
 ```bash
 git config --global user.name "Your Name"
@@ -23,7 +33,7 @@ git config --global user.name "Kimseak Phorn"
 
 ---
 
-## Set Git Email
+## Set Email
 
 ```bash
 git config --global user.email "your_email@example.com"
@@ -45,18 +55,7 @@ git config --global --list
 
 ---
 
-# Requirements
-
-- macOS
-- Xcode
-- CocoaPods
-- Git
-
----
-
 # Clone Project
-
-Open Terminal and run:
 
 ```bash
 cd /your-project
@@ -72,7 +71,7 @@ cd Desktop
 git clone http://10.11.20.251/kimseak/acleda-mobile-ios.git
 ```
 
-After clone complete:
+Move into project folder:
 
 ```bash
 cd acleda-mobile-ios
@@ -80,15 +79,15 @@ cd acleda-mobile-ios
 
 ---
 
-# Setup Project
+# Project Setup
 
-## 1. Install CocoaPods
+## Install CocoaPods
 
 ```bash
 pod install
 ```
 
-If pod command not found:
+If CocoaPods is not installed:
 
 ```bash
 sudo gem install cocoapods
@@ -96,30 +95,29 @@ sudo gem install cocoapods
 
 ---
 
-## 2. Open Project
-
-Open workspace file:
+## Open Workspace
 
 ```bash
 open YourProject.xcworkspace
 ```
 
-Important:
-
-- Always open `.xcworkspace`
-- Do not open `.xcodeproj` when using CocoaPods
+> Important:
+>
+> Always open `.xcworkspace`
+>
+> Do not open `.xcodeproj` when using CocoaPods.
 
 ---
 
-## 3. Resolve Swift Package Manager (SPM)
+## Resolve Swift Package Manager (SPM)
 
 In Xcode:
 
-- File
-- Packages
-- Resolve Package Versions
+```text
+File → Packages → Resolve Package Versions
+```
 
-Or wait for Xcode to automatically download packages.
+Or wait for Xcode to automatically resolve packages.
 
 ---
 
@@ -133,7 +131,7 @@ git branch
 
 ---
 
-## Pull Latest Develop
+## Pull Latest Develop Branch
 
 ```bash
 git checkout develop
@@ -144,7 +142,7 @@ git pull origin develop
 
 ## Create New Branch
 
-Recommended branch naming:
+Recommended naming convention:
 
 ```bash
 git checkout -b feature/login-improvement
@@ -192,7 +190,7 @@ Add all files:
 git add .
 ```
 
-Or specific file:
+Or add specific file:
 
 ```bash
 git add Sources/HomeViewController.swift
@@ -236,9 +234,11 @@ git push
 
 # Merge Request (MR)
 
+## Create Merge Request
+
 1. Open GitLab
-2. Go to Merge Requests
-3. Click New Merge Request
+2. Go to **Merge Requests**
+3. Click **New Merge Request**
 4. Select:
    - Source branch = your branch
    - Target branch = develop
@@ -254,9 +254,9 @@ git push
 - Never commit directly to `main` or `master`
 - Use feature branches
 - Pull latest `develop` before coding
-- Review changed files before push
+- Review files before pushing
 - Use meaningful commit messages
-- Keep branch focused on one task
+- Keep branches focused on one feature or fix
 
 ---
 
@@ -274,29 +274,37 @@ develop
 
 # Useful Git Commands
 
-## Check Status
+## Git Status
 
 ```bash
 git status
 ```
 
-## Check Branches
+---
+
+## List Branches
 
 ```bash
 git branch
 ```
 
-## View Commit History
+---
+
+## Commit History
 
 ```bash
 git log --oneline
 ```
+
+---
 
 ## Pull Latest Code
 
 ```bash
 git pull
 ```
+
+---
 
 ## Push Code
 
@@ -308,9 +316,7 @@ git push
 
 # Troubleshooting
 
-## Pod Install Failed
-
-Try:
+## CocoaPods Error
 
 ```bash
 pod repo update
@@ -319,9 +325,9 @@ pod install
 
 ---
 
-## Clean Build
+## Clean Build Folder
 
-```bash
+```text
 Shift + Command + K
 ```
 
@@ -338,4 +344,3 @@ rm -rf ~/Library/Developer/Xcode/DerivedData
 # Author
 
 ACLEDA Mobile iOS Team
-````
