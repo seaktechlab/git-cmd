@@ -68,7 +68,7 @@ Example:
 ```bash
 cd Desktop
 
-git clone http://10.11.20.251/kimseak/acleda-mobile-ios.git
+git clone http://localserverip/kimseak/acleda-mobile-ios.git
 ```
 
 Move into project folder:
