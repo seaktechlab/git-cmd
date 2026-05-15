@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACLEDA Mobile iOS - Setup Guide</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --card-light: #1e293b;
+      --text: #f8fafc;
+      --subtext: #94a3b8;
+      --primary: #3b82f6;
+      --border: rgba(255,255,255,0.08);
+      --success: #22c55e;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 50px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      color: var(--subtext);
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59,130,246,0.4);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .card p {
+      color: var(--subtext);
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(59,130,246,0.15);
+      color: #60a5fa;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    pre {
+      background: #020617;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 16px;
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+
+    code {
+      color: #38bdf8;
+      font-size: 14px;
+      font-family: Menlo, monospace;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: var(--subtext);
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 80px;
+      padding: 30px 0;
+      color: var(--subtext);
+      border-top: 1px solid var(--border);
+    }
+
+    .highlight {
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: 50px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <section class="hero">
+      <h1>ACLEDA Mobile iOS</h1>
+      <p>
+        Professional iOS project setup guide with Git workflow,
+        CocoaPods installation, branch strategy, and Merge Request flow.
+      </p>
+    </section>
+
+    <div class="grid">
+
+      <div class="card">
+        <span class="badge">Git Setup</span>
+        <h2>Global Git Configuration</h2>
+
+        <p>Configure Git before cloning project.</p>
+
+        <pre><code>git config --global user.name "Your Name"
+
+git config --global user.email "your_email@example.com"
+
+git config --global --list</code></pre>
+      </div>
+
+      <div class="card">
+        <span class="badge">Clone Project</span>
+        <h2>Clone Repository</h2>
+
+        <pre><code>cd Desktop
+
+git clone http://10.11.20.251/kimseak/acleda-mobile-ios.git
+
+cd acleda-mobile-ios</code></pre>
+      </div>
+
+      <div class="card">
+        <span class="badge">CocoaPods</span>
+        <h2>Install Dependencies</h2>
+
+        <pre><code>pod install</code></pre>
+
+        <p>If CocoaPods is missing:</p>
+
+        <pre><code>sudo gem install cocoapods</code></pre>
+      </div>
+
+      <div class="card">
+        <span class="badge">Xcode</span>
+        <h2>Open Workspace</h2>
+
+        <pre><code>open YourProject.xcworkspace</code></pre>
+
+        <p>
+          <span class="highlight">Important:</span>
+          Always open <code>.xcworkspace</code>
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Git Flow</span>
+        <h2>Create Branch</h2>
+
+        <pre><code>git checkout develop
+git pull origin develop
+
+git checkout -b feature/home-ui</code></pre>
+      </div>
+
+      <div class="card">
+        <span class="badge">Commit</span>
+        <h2>Commit Changes</h2>
+
+        <pre><code>git add .
+
+git commit -m "feat: improve login validation"</code></pre>
+      </div>
+
+      <div class="card">
+        <span class="badge">Push</span>
+        <h2>Push Code</h2>
+
+        <pre><code>git push -u origin feature/home-ui</code></pre>
+      </div>
+
+      <div class="card">
+        <span class="badge">Merge Request</span>
+        <h2>Create MR</h2>
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <div>Open GitLab</div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div>Go to Merge Requests</div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div>Create New Merge Request</div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div>Select source and target branch</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge">Best Practice</span>
+        <h2>Development Rules</h2>
+
+        <ul>
+          <li>Never commit directly to main branch</li>
+          <li>Always use feature branches</li>
+          <li>Pull latest develop before coding</li>
+          <li>Review changed files before push</li>
+          <li>Use clean commit messages</li>
+          <li>Create Merge Request for every update</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge">Troubleshooting</span>
+        <h2>Useful Commands</h2>
+
+        <pre><code>git status
+git branch
+git log --oneline
+git pull
+git push</code></pre>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <p>ACLEDA Mobile iOS Team • Senior Level Project Setup Guide</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
