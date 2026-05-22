@@ -60,7 +60,7 @@ git config --global --list
 ```bash
 cd /your-project
 
-git clone http://localserverip/kimseak/acleda-mobile-ios.git
+git clone http://localserverip/kimseak/repo-name.git
 ```
 
 Example:
@@ -68,13 +68,13 @@ Example:
 ```bash
 cd Desktop
 
-git clone http://localserverip/kimseak/acleda-mobile-ios.git
+git clone http://localserverip/kimseak/repo-name.git
 ```
 
 Move into project folder:
 
 ```bash
-cd acleda-mobile-ios
+cd repo-name
 ```
 
 ---
@@ -342,5 +342,4 @@ rm -rf ~/Library/Developer/Xcode/DerivedData
 ---
 
 # Author
-
-ACLEDA Mobile iOS Team
+Kimseak
