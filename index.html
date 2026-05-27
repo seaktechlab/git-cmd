@@ -4,12 +4,13 @@
 <head>
 
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Git Local Server iOS</title>
+  <title>Professional Git Workflow iOS</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -78,10 +79,6 @@
 
       min-height:100vh;
 
-      transition:
-      background 0.3s ease,
-      color 0.3s ease;
-
     }
 
     @media (prefers-color-scheme: dark){
@@ -115,7 +112,7 @@
     .container{
 
       width:100%;
-      max-width:1500px;
+      max-width:1600px;
 
       margin:auto;
 
@@ -127,7 +124,7 @@
 
       text-align:center;
 
-      padding:50px 20px 30px;
+      padding:60px 20px 40px;
 
     }
 
@@ -149,17 +146,15 @@
 
       margin-bottom:18px;
 
-      letter-spacing:0.3px;
-
     }
 
     .hero h1{
 
-      font-size:48px;
+      font-size:52px;
 
       font-weight:800;
 
-      margin-bottom:10px;
+      margin-bottom:12px;
 
       letter-spacing:-1px;
 
@@ -171,6 +166,10 @@
 
       font-size:16px;
 
+      max-width:700px;
+
+      margin:auto;
+
     }
 
     .grid{
@@ -181,7 +180,7 @@
 
       gap:24px;
 
-      margin-top:20px;
+      margin-top:30px;
 
     }
 
@@ -191,7 +190,7 @@
 
       border:1px solid var(--border);
 
-      border-radius:24px;
+      border-radius:26px;
 
       padding:28px;
 
@@ -201,13 +200,13 @@
 
       box-shadow:
       0 0 0 1px rgba(255,255,255,0.02),
-      0 10px 30px rgba(0,0,0,0.08);
+      0 12px 30px rgba(0,0,0,0.08);
 
     }
 
     .card:hover{
 
-      transform:translateY(-5px);
+      transform:translateY(-6px);
 
       background:var(--card-hover);
 
@@ -219,19 +218,17 @@
 
       background:var(--badge-bg);
 
-      padding:8px 14px;
+      border:1px solid var(--border);
 
       border-radius:999px;
+
+      padding:8px 14px;
 
       font-size:12px;
 
       font-weight:600;
 
-      border:1px solid var(--border);
-
       margin-bottom:18px;
-
-      letter-spacing:0.3px;
 
     }
 
@@ -249,7 +246,7 @@
 
       color:var(--subtext);
 
-      margin-bottom:16px;
+      margin-bottom:18px;
 
       font-size:15px;
 
@@ -267,7 +264,7 @@
 
       overflow-x:auto;
 
-      margin-top:14px;
+      margin-top:12px;
 
     }
 
@@ -285,17 +282,35 @@
 
     }
 
+    .warning{
+
+      margin-top:14px;
+
+      padding:14px;
+
+      border-radius:14px;
+
+      background:rgba(255, 174, 0, 0.08);
+
+      border:1px solid rgba(255,174,0,0.2);
+
+      color:#facc15;
+
+      font-size:14px;
+
+    }
+
     .footer{
 
-      margin-top:60px;
+      margin-top:70px;
 
       padding:30px 0;
 
       text-align:center;
 
-      color:var(--subtext);
-
       border-top:1px solid var(--border);
+
+      color:var(--subtext);
 
       font-size:14px;
 
@@ -308,7 +323,7 @@
       }
 
       .hero h1{
-        font-size:34px;
+        font-size:36px;
       }
 
       .card{
@@ -325,27 +340,27 @@
 
   <div class="container">
 
-    <!-- Hero -->
+    <!-- HERO -->
 
     <section class="hero">
 
       <div class="hero-badge">
-        iOS Developer Guide
+        iOS Developer Professional Guide
       </div>
 
-      <h1>Git Local Server iOS</h1>
+      <h1>Git Workflow & Local Server Setup</h1>
 
       <p>
-        Complete Git workflow & local server setup for iOS developers.
+        Complete Git, GitLab, CocoaPods, GitFlow and iOS project setup guide for professional development teams.
       </p>
 
     </section>
 
-    <!-- Grid -->
+    <!-- GRID -->
 
     <div class="grid">
 
-      <!-- Git Setup -->
+      <!-- GIT CONFIG -->
 
       <div class="card">
 
@@ -356,7 +371,7 @@
         <h2>Global Git Configuration</h2>
 
         <p>
-          Configure Git account before cloning project.
+          Configure Git account before starting project.
         </p>
 
 <pre><code># Set username
@@ -370,358 +385,85 @@ git config --global --list</code></pre>
 
       </div>
 
-      <!-- Clone -->
+      <!-- SSH -->
 
       <div class="card">
 
         <div class="badge">
-          Clone Repository
+          SSH
         </div>
 
-        <h2>Clone Project</h2>
+        <h2>SSH Setup GitLab</h2>
 
         <p>
-          Download source code from GitLab server.
+          Generate SSH key for secure GitLab access.
         </p>
 
-<pre><code># Go to desktop
+<pre><code># Generate SSH key
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Start SSH agent
+eval "$(ssh-agent -s)"
+
+# Add SSH key
+ssh-add ~/.ssh/id_ed25519
+
+# Show public key
+cat ~/.ssh/id_ed25519.pub</code></pre>
+
+      </div>
+
+      <!-- CLONE -->
+
+      <div class="card">
+
+        <div class="badge">
+          Clone
+        </div>
+
+        <h2>Clone Repository</h2>
+
+        <p>
+          Download project from GitLab server.
+        </p>
+
+<pre><code># Go desktop
 cd Desktop
 
-# Clone repository
-git clone http://YOUR_GITLAB_SERVER/repo-name.git
+# Clone project
+git clone git@gitlab.com:project/repo.git
 
-# Open project folder
+# Open folder
 cd repo-name</code></pre>
 
       </div>
 
-      <!-- Branch -->
+      <!-- GITIGNORE -->
 
       <div class="card">
 
         <div class="badge">
-          Branch
+          Git Ignore
         </div>
 
-        <h2>Create Feature Branch</h2>
+        <h2>Create .gitignore</h2>
 
         <p>
-          Create new branch before coding.
+          Ignore unnecessary iOS files.
         </p>
 
-<pre><code># Switch develop branch
-git checkout develop
+<pre><code># Create gitignore
+touch .gitignore</code></pre>
 
-# Pull latest code
-git pull origin develop
-
-# Create new feature branch
-git checkout -b feature/home-ui</code></pre>
+<pre><code>Pods/
+DerivedData/
+build/
+.DS_Store
+xcuserdata/</code></pre>
 
       </div>
 
-      <!-- Status -->
-
-      <div class="card">
-
-        <div class="badge">
-          Status
-        </div>
-
-        <h2>Check Git Status</h2>
-
-        <p>
-          Verify changed and staged files.
-        </p>
-
-<pre><code># Show current changes
-git status
-
-# Short status
-git status -s</code></pre>
-
-      </div>
-
-      <!-- Add -->
-
-      <div class="card">
-
-        <div class="badge">
-          Stage
-        </div>
-
-        <h2>Add Files</h2>
-
-        <p>
-          Add source files before commit.
-        </p>
-
-<pre><code># Add all files
-git add .
-
-# Add specific file
-git add HomeViewController.swift</code></pre>
-
-      </div>
-
-      <!-- Commit -->
-
-      <div class="card">
-
-        <div class="badge">
-          Commit
-        </div>
-
-        <h2>Commit Changes</h2>
-
-        <p>
-          Save changes locally.
-        </p>
-
-<pre><code># Commit code
-git commit -m "feat: improve login validation"
-
-# Amend last commit
-git commit --amend</code></pre>
-
-      </div>
-
-      <!-- Push -->
-
-      <div class="card">
-
-        <div class="badge">
-          Push
-        </div>
-
-        <h2>Push Code</h2>
-
-        <p>
-          Upload code to GitLab server.
-        </p>
-
-<pre><code># First push
-git push -u origin feature/home-ui
-
-# Next push
-git push</code></pre>
-
-      </div>
-
-      <!-- Pull -->
-
-      <div class="card">
-
-        <div class="badge">
-          Pull
-        </div>
-
-        <h2>Pull Latest Code</h2>
-
-        <p>
-          Sync latest changes from remote branch.
-        </p>
-
-<pre><code># Pull develop branch
-git pull origin develop
-
-# Fetch only
-git fetch</code></pre>
-
-      </div>
-
-      <!-- Log -->
-
-      <div class="card">
-
-        <div class="badge">
-          History
-        </div>
-
-        <h2>View Commit History</h2>
-
-        <p>
-          Show commit records and logs.
-        </p>
-
-<pre><code># Full log
-git log
-
-# One line log
-git log --oneline
-
-# Graph log
-git log --oneline --graph</code></pre>
-
-      </div>
-
-      <!-- Branch Manage -->
-
-      <div class="card">
-
-        <div class="badge">
-          Branches
-        </div>
-
-        <h2>Manage Branches</h2>
-
-        <p>
-          View and delete branches.
-        </p>
-
-<pre><code># Show branches
-git branch
-
-# Show all branches
-git branch -a
-
-# Delete branch
-git branch -d feature/home-ui
-
-# Force delete branch
-git branch -D feature/home-ui</code></pre>
-
-      </div>
-
-      <!-- Stash -->
-
-      <div class="card">
-
-        <div class="badge">
-          Stash
-        </div>
-
-        <h2>Temporary Save</h2>
-
-        <p>
-          Save unfinished changes temporarily.
-        </p>
-
-<pre><code># Save changes
-git stash
-
-# View stash
-git stash list
-
-# Restore stash
-git stash pop</code></pre>
-
-      </div>
-
-      <!-- Diff -->
-
-      <div class="card">
-
-        <div class="badge">
-          Compare
-        </div>
-
-        <h2>View Differences</h2>
-
-        <p>
-          Compare modified code changes.
-        </p>
-
-<pre><code># Show difference
-git diff
-
-# Show staged difference
-git diff --cached</code></pre>
-
-      </div>
-
-      <!-- Reset -->
-
-      <div class="card">
-
-        <div class="badge">
-          Reset
-        </div>
-
-        <h2>Reset Changes</h2>
-
-        <p>
-          Undo local changes safely.
-        </p>
-
-<pre><code># Reset staged files
-git reset
-
-# Hard reset
-git reset --hard
-
-# Reset commit
-git reset --hard COMMIT_ID</code></pre>
-
-      </div>
-
-      <!-- Clean -->
-
-      <div class="card">
-
-        <div class="badge">
-          Clean
-        </div>
-
-        <h2>Remove Untracked Files</h2>
-
-        <p>
-          Delete temporary and unused files.
-        </p>
-
-<pre><code># Remove files
-git clean -fd</code></pre>
-
-      </div>
-
-      <!-- Rebase -->
-
-      <div class="card">
-
-        <div class="badge">
-          Rebase
-        </div>
-
-        <h2>Rebase Branch</h2>
-
-        <p>
-          Keep branch updated cleanly.
-        </p>
-
-<pre><code># Rebase develop
-git rebase develop
-
-# Continue rebase
-git rebase --continue
-
-# Abort rebase
-git rebase --abort</code></pre>
-
-      </div>
-
-      <!-- Merge -->
-
-      <div class="card">
-
-        <div class="badge">
-          Merge
-        </div>
-
-        <h2>Merge Branch</h2>
-
-        <p>
-          Merge feature branch into current branch.
-        </p>
-
-<pre><code># Merge branch
-git merge feature/home-ui
-
-# Abort merge
-git merge --abort</code></pre>
-
-      </div>
-
-      <!-- Pods -->
+      <!-- POD -->
 
       <div class="card">
 
@@ -732,7 +474,7 @@ git merge --abort</code></pre>
         <h2>Install Pods</h2>
 
         <p>
-          Install required iOS libraries.
+          Install required libraries.
         </p>
 
 <pre><code># Install pods
@@ -743,7 +485,7 @@ pod update</code></pre>
 
       </div>
 
-      <!-- Xcode -->
+      <!-- OPEN -->
 
       <div class="card">
 
@@ -754,11 +496,532 @@ pod update</code></pre>
         <h2>Open Workspace</h2>
 
         <p>
-          Open project workspace.
+          Open workspace instead of xcodeproj.
         </p>
 
-<pre><code># Open workspace
-open YourProject.xcworkspace</code></pre>
+<pre><code>open YourProject.xcworkspace</code></pre>
+
+      </div>
+
+      <!-- BRANCH -->
+
+      <div class="card">
+
+        <div class="badge">
+          Branch
+        </div>
+
+        <h2>Create Feature Branch</h2>
+
+        <p>
+          Start feature development.
+        </p>
+
+<pre><code># Switch develop
+git checkout develop
+
+# Pull latest
+git pull origin develop
+
+# Create feature branch
+git checkout -b feature/home-ui</code></pre>
+
+      </div>
+
+      <!-- STATUS -->
+
+      <div class="card">
+
+        <div class="badge">
+          Status
+        </div>
+
+        <h2>Check Status</h2>
+
+        <p>
+          Check modified files.
+        </p>
+
+<pre><code># Show status
+git status
+
+# Short status
+git status -s</code></pre>
+
+      </div>
+
+      <!-- ADD -->
+
+      <div class="card">
+
+        <div class="badge">
+          Stage
+        </div>
+
+        <h2>Add Files</h2>
+
+        <p>
+          Stage source code before commit.
+        </p>
+
+<pre><code># Add all
+git add .
+
+# Add specific file
+git add HomeVC.swift</code></pre>
+
+      </div>
+
+      <!-- COMMIT -->
+
+      <div class="card">
+
+        <div class="badge">
+          Commit
+        </div>
+
+        <h2>Commit Changes</h2>
+
+        <p>
+          Save local source changes.
+        </p>
+
+<pre><code># Commit
+git commit -m "feat: improve login validation"
+
+# Amend commit
+git commit --amend</code></pre>
+
+      </div>
+
+      <!-- PUSH -->
+
+      <div class="card">
+
+        <div class="badge">
+          Push
+        </div>
+
+        <h2>Push Code</h2>
+
+        <p>
+          Upload source code to GitLab.
+        </p>
+
+<pre><code># First push
+git push -u origin feature/home-ui
+
+# Next push
+git push</code></pre>
+
+      </div>
+
+      <!-- FORCE PUSH -->
+
+      <div class="card">
+
+        <div class="badge">
+          Force Push
+        </div>
+
+        <h2>Force Push</h2>
+
+        <p>
+          Overwrite remote branch history.
+        </p>
+
+<pre><code>git push --force</code></pre>
+
+        <div class="warning">
+          ⚠️ Use carefully. Can overwrite remote history.
+        </div>
+
+      </div>
+
+      <!-- PULL -->
+
+      <div class="card">
+
+        <div class="badge">
+          Pull
+        </div>
+
+        <h2>Pull Latest Code</h2>
+
+        <p>
+          Sync latest source from remote.
+        </p>
+
+<pre><code># Pull branch
+git pull origin develop
+
+# Fetch only
+git fetch</code></pre>
+
+      </div>
+
+      <!-- LOG -->
+
+      <div class="card">
+
+        <div class="badge">
+          History
+        </div>
+
+        <h2>Commit History</h2>
+
+        <p>
+          View Git commit history.
+        </p>
+
+<pre><code># Full history
+git log
+
+# One line
+git log --oneline
+
+# Graph
+git log --oneline --graph</code></pre>
+
+      </div>
+
+      <!-- STASH -->
+
+      <div class="card">
+
+        <div class="badge">
+          Stash
+        </div>
+
+        <h2>Temporary Save</h2>
+
+        <p>
+          Save unfinished work temporarily.
+        </p>
+
+<pre><code># Save
+git stash
+
+# View stash
+git stash list
+
+# Restore stash
+git stash pop</code></pre>
+
+      </div>
+
+      <!-- DIFF -->
+
+      <div class="card">
+
+        <div class="badge">
+          Diff
+        </div>
+
+        <h2>View Difference</h2>
+
+        <p>
+          Compare changed source code.
+        </p>
+
+<pre><code># Difference
+git diff
+
+# Staged difference
+git diff --cached</code></pre>
+
+      </div>
+
+      <!-- RESET -->
+
+      <div class="card">
+
+        <div class="badge">
+          Reset
+        </div>
+
+        <h2>Undo Changes</h2>
+
+        <p>
+          Reset local changes safely.
+        </p>
+
+<pre><code># Soft reset
+git reset --soft HEAD~1
+
+# Hard reset
+git reset --hard HEAD~1</code></pre>
+
+      </div>
+
+      <!-- REVERT -->
+
+      <div class="card">
+
+        <div class="badge">
+          Revert
+        </div>
+
+        <h2>Revert Commit</h2>
+
+        <p>
+          Safely undo shared commit.
+        </p>
+
+<pre><code>git revert COMMIT_ID</code></pre>
+
+      </div>
+
+      <!-- CHERRY PICK -->
+
+      <div class="card">
+
+        <div class="badge">
+          Cherry Pick
+        </div>
+
+        <h2>Apply Specific Commit</h2>
+
+        <p>
+          Copy commit into current branch.
+        </p>
+
+<pre><code>git cherry-pick COMMIT_ID</code></pre>
+
+      </div>
+
+      <!-- REBASE -->
+
+      <div class="card">
+
+        <div class="badge">
+          Rebase
+        </div>
+
+        <h2>Rebase Branch</h2>
+
+        <p>
+          Keep branch history clean.
+        </p>
+
+<pre><code># Rebase develop
+git rebase develop
+
+# Continue
+git rebase --continue
+
+# Abort
+git rebase --abort</code></pre>
+
+      </div>
+
+      <!-- MERGE -->
+
+      <div class="card">
+
+        <div class="badge">
+          Merge
+        </div>
+
+        <h2>Merge Branch</h2>
+
+        <p>
+          Merge feature branch.
+        </p>
+
+<pre><code># Merge branch
+git merge feature/home-ui
+
+# Abort merge
+git merge --abort</code></pre>
+
+      </div>
+
+      <!-- CONFLICT -->
+
+      <div class="card">
+
+        <div class="badge">
+          Conflict
+        </div>
+
+        <h2>Resolve Conflict</h2>
+
+        <p>
+          Fix merge conflict manually.
+        </p>
+
+<pre><code># Check conflict
+git status
+
+# Add resolved files
+git add .
+
+# Continue merge
+git commit</code></pre>
+
+      </div>
+
+      <!-- TAG -->
+
+      <div class="card">
+
+        <div class="badge">
+          Release
+        </div>
+
+        <h2>Tag Release</h2>
+
+        <p>
+          Create production release tag.
+        </p>
+
+<pre><code># Create tag
+git tag v1.0.0
+
+# Push tags
+git push --tags</code></pre>
+
+      </div>
+
+      <!-- REMOTE -->
+
+      <div class="card">
+
+        <div class="badge">
+          Remote
+        </div>
+
+        <h2>Remote URL</h2>
+
+        <p>
+          Manage Git remote repository.
+        </p>
+
+<pre><code># Show remote
+git remote -v
+
+# Change remote URL
+git remote set-url origin NEW_URL</code></pre>
+
+      </div>
+
+      <!-- GITFLOW -->
+
+      <div class="card">
+
+        <div class="badge">
+          GitFlow
+        </div>
+
+        <h2>Git Branch Strategy</h2>
+
+        <p>
+          Professional Git workflow structure.
+        </p>
+
+<pre><code>main       -> production
+develop    -> staging
+feature/*  -> new features
+hotfix/*   -> urgent fixes
+release/*  -> release preparation</code></pre>
+
+      </div>
+
+      <!-- COMMIT STYLE -->
+
+      <div class="card">
+
+        <div class="badge">
+          Convention
+        </div>
+
+        <h2>Commit Message Style</h2>
+
+        <p>
+          Standard commit naming convention.
+        </p>
+
+<pre><code>feat:
+fix:
+refactor:
+style:
+docs:
+chore:</code></pre>
+
+<pre><code># Example
+git commit -m "fix: crash login screen"</code></pre>
+
+      </div>
+
+      <!-- DAILY -->
+
+      <div class="card">
+
+        <div class="badge">
+          Workflow
+        </div>
+
+        <h2>Daily Workflow</h2>
+
+        <p>
+          Recommended daily Git process.
+        </p>
+
+<pre><code>git checkout develop
+git pull origin develop
+
+git checkout -b feature/new-feature
+
+git add .
+git commit -m "feat: add feature"
+
+git push -u origin feature/new-feature</code></pre>
+
+      </div>
+
+      <!-- TERMINAL -->
+
+      <div class="card">
+
+        <div class="badge">
+          Terminal
+        </div>
+
+        <h2>Useful Terminal Commands</h2>
+
+        <p>
+          Common macOS terminal usage.
+        </p>
+
+<pre><code>pwd
+ls
+cd ..
+mkdir FolderName
+rm -rf FolderName</code></pre>
+
+      </div>
+
+      <!-- TROUBLESHOOT -->
+
+      <div class="card">
+
+        <div class="badge">
+          Troubleshoot
+        </div>
+
+        <h2>Common Fixes</h2>
+
+        <p>
+          Solve common iOS project issues.
+        </p>
+
+<pre><code># Reinstall pods
+pod deintegrate
+pod install
+
+# Permission issue
+sudo chmod -R 777 folder-name</code></pre>
 
       </div>
 
@@ -773,11 +1036,11 @@ open YourProject.xcworkspace</code></pre>
         <h2>Create Merge Request</h2>
 
         <p>
-          Submit code for review.
+          Submit source code review.
         </p>
 
 <pre><code>1. Open GitLab
-2. Go to Merge Requests
+2. Go Merge Requests
 3. Click New MR
 4. Select source branch
 5. Select target branch
@@ -787,10 +1050,10 @@ open YourProject.xcworkspace</code></pre>
 
     </div>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
 
     <div class="footer">
-      © 2026 Kimseak • Professional Git Workflow Guide
+      © 2026 Kimseak • Professional iOS Git Workflow Documentation
     </div>
 
   </div>
